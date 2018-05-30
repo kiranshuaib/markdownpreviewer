@@ -7,7 +7,7 @@ import FormControl from 'react-bootstrap/lib/FormControl';
 let marked = require('marked');
 class App extends Component {
 	state = {
-		markdown: '',
+    markdown: ' '
 	};
  
   updateMarkdown = function(markdown){
@@ -22,19 +22,20 @@ render() {
 		return (
 			<div className="App container  ">
 				<div>
-					<FormGroup controlId="formControlsTextArea">
-              <ControlLabel>Markdown Input</ControlLabel>
+          <h3 className="text-center"> Markdown Input</h3>
+          <FormGroup controlId="formControlsTextArea">
+              <ControlLabel></ControlLabel>
               <FormControl 
               componentClass="textarea" 
               placeholder="Enter text" 
               value={markdown} 
               onChange = {(event)=>this.updateMarkdown(event.target.value)}/>
             
-           </FormGroup>
+             </FormGroup>
 				</div>
 
 				<div>
-					<h1>markdown Output</h1>
+          <h3 className="text-center">Markdown Output</h3>
           <div dangerouslySetInnerHTML={{ __html: marked(markdown) }}>
           
 				</div>
